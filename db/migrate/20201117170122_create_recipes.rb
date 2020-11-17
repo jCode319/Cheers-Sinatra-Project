@@ -4,7 +4,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.string :name
       t.text :ingredients
       t.text :directions
-      t.string :type
+      t.string :spirit_type
       t.integer :user_id
     end
   end
