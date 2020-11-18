@@ -1,5 +1,4 @@
-<h2><%= @recipes.name %></h2>
-<br>
+<h2><%= @recipes.name %>:</h2>
 
 <ul>
   <label>Ingredients:</label>
@@ -8,6 +7,8 @@
   <label>Directions:</label>
   <li><%= @recipes.directions.gsub(/\n/, '<br/>') %>.</li>
   <br>
+  <label>Spirit:</label>
+  <li><%= @recipes.spirit_type.gsub(/\n/, '<br/>') %>.</li>
   <%# created by: %>
 </ul>
 

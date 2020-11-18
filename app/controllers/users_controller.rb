@@ -4,12 +4,15 @@ class UsersController < ApplicationController
   #   require_login
   # end
 
-  # get '/users/:slug' do
-  #   binding.pry
-  #   @user = User.find_by(username: params[:slug])
-  #   @recipes = Recipe.all.select  { |r| r.user_id == @user.id }
-  #   @sorted_recipes = @recipes.sort_by{}
-  # end
+  get '/users' do
+    @user = User.create(params)
+    binding.pry
+  end
 
-
+  get '/:id' do
+         @user = User.find_by(username: params[:id])
+         # @recipes = Recipe.all.select { |r| r.user_id == @user.id }
+         # @recipes = @recipes.sort_by{|r| r.name}
+         erb :"users/show"
+       end
 end

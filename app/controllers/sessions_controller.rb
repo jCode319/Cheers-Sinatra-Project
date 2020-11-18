@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   end
 
   post '/sessions/signup' do
-    user = User.create(params)
-    if user.save
-      session[:user_id] = user.id
+    @user = User.create(params)
+    if @user.save
+      session[:user_id] = @user.id
       redirect to '/recipes'
     else
       "error message"     #come back and do flash message
@@ -24,10 +24,10 @@ class SessionsController < ApplicationController
   end
 
   post '/sessions/login' do
-    user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username])
 
-    if user && user.authenticate(params[:password])
-      session[user_id] = user_id
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user_id
       redirect to '/recipes'
     else
       #come back to make a flash message.

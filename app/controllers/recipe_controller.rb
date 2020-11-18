@@ -15,9 +15,10 @@ class RecipesController < ApplicationController
   end
 
   post '/recipes' do #create
-    binding.pry
-    @recipe = Recipe.new(params)
-
+    "You've been made"
+    @recipe = Recipe.create(params)
+    # @recipe.user_id = current_user.id
+     # binding.pry
 
   end
 
@@ -34,5 +35,12 @@ class RecipesController < ApplicationController
   get '/recipes/:id/edit' do
     erb :'recipes/edit'
   end
+
+  # helpers do
+  #   def item_params
+  #     params.require(:recipe).permit(:name, :ingredients, :descriptions, :spirit_type)
+  #   end
+  # end
+  # this is to make fields required...maybe
 
 end
