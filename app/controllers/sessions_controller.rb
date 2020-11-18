@@ -30,10 +30,15 @@ class SessionsController < ApplicationController
       session[user_id] = user_id
       redirect to '/recipes'
     else
+      #come back to make a flash message.
       "Sorry, that is incorrect, please try again or click Sign Up below to create a new account."
+      redirect to '/sessions/login'
     end
-
   end
 
+  get '/logout' do
+    session.destroy
+    redirect '/'
+  end
 
 end

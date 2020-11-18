@@ -1,4 +1,11 @@
 <h2>Hi _ , welcome back to your Drinkbook!</h2>
 
+<h3>All Recipes:</h3>
+
+<ul>
+<% @sorted_recipes.each do |r| %>
+    <li> <a href="/recipes/<%=r.id%>"><%= r.name %></a></li>
+<% end %>
+</ul>
 
 <!-- show options: view drinkbook, create a recipe, logout -->
