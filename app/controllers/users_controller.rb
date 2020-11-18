@@ -1,3 +1,3 @@
 class UsersController < Sinatra::Base
 
- end
+end

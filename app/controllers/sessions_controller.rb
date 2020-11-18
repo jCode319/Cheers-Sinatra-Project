@@ -1,12 +1,15 @@
 class SessionsController < Sinatra::Base
 
+  get '/signup' do #new
+    erb :'/sessions/signup'
+  end
 
-  get '/sessions/signup' do
-    # if !logged_in?
-      erb :'sessions/signup'
-    # else
-    #   redirect "/drink"
-    end
+  # get '/signup' do
+  #   if !logged_in?
+  #     erb :"sessions/signup"
+  #   else
+  #     redirect "/"
+  #   end
   # end
 
 
