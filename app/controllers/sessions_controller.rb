@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   end
 
   post '/sessions/signup' do
-    user = User.new(params)
+    user = User.create(params)
+    redirect to '/recipe'
   end
 
   # get '/signup' do
