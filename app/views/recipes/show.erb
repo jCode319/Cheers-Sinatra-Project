@@ -1,3 +1,15 @@
+<h2><%= @recipes.name %></h2>
+<br>
 
+<ul>
+  <label>Ingredients:</label>
+  <li><%= @recipes.ingredients.gsub(/\n/, '<br/>') %>.</li>
+  <br>
+  <label>Directions:</label>
+  <li><%= @recipes.directions.gsub(/\n/, '<br/>') %>.</li>
+  <br>
+  <%# created by: %>
+</ul>
 
-This is the details page
+<%# add to drinkbook %>
+<%# edit recipe (if user) %>
