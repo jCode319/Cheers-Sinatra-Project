@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
 
 
-  # get '/recipe/' do
-  #   erb :
-  # end
+  get '/recipes' do
+    erb :'/recipes/index'
+  end
 
 
 
