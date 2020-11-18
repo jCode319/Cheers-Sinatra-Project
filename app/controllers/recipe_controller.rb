@@ -1,9 +1,9 @@
-class RecipeController < Sinatra::Base
+class RecipesController < ApplicationController
 
 
-  get '/recipe/' do
-    erb :
-  end
+  # get '/recipe/' do
+  #   erb :
+  # end
 
 
 

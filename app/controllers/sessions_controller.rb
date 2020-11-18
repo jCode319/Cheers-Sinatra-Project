@@ -1,7 +1,11 @@
-class SessionsController < Sinatra::Base
+class SessionsController < ApplicationController
 
-  get '/signup' do #new
-    erb :'/sessions/signup'
+  get '/sessions/signup' do #new
+    erb :'sessions/signup'
+  end
+
+  post '/sessions/signup' do
+    user = User.new(params)
   end
 
   # get '/signup' do
