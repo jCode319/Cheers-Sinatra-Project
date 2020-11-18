@@ -1,3 +1,5 @@
 class Recipe < ActiveRecord::Base
-  has_many :recipes through: :saved_recipes
+  belongs_to :user
+  has_many :saved_recipes
+  has_many :users, through: :saved_recipes
 end
