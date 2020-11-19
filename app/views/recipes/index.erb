@@ -1,10 +1,11 @@
-<h2>Hi _ , welcome back!</h2>
-
 <h3>All Recipes:</h3>
 
 <ul>
-<%  @sorted_recipes.each do |recipe| %>
+<%  @recipes.each do |recipe| %>
     <li> <a href="/recipes/<%=recipe.id%>"><%= recipe.name %> </a></li>
+<br>
+
+
 <% end %>
 </ul>
 

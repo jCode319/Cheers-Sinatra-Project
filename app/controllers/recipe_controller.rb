@@ -10,37 +10,46 @@ class RecipesController < ApplicationController
   end
 
   post '/recipes' do
-    @recipes = Recipe.create(
+    @recipe = Recipe.create(
       name: params[:name],
       ingredients: params[:ingredients],
       directions: params[:directions],
-      spirit_type: params[:spirit_type]
-    )
-      redirect to "/recipes/#{@recipes.id}"
+      spirit_type: params[:spirit_type],
+      user_id: current_user.id
+      )
+      redirect "/recipes/#{@recipe.id}"
   end
 
 #read
+  get '/recipes/:id' do
+    @recipes = Recipe.find(params[:id])
+      erb :'recipes/show'
+  end
+
   get '/recipes' do
     @recipes = Recipe.all
     @sorted_recipes = @recipes.sort_by {|r| r.name}
-    erb :'/recipes/index'
-  end
-
-  get '/recipes/:id' do
-    @recipes = Recipe.find(params[:id])
-        erb :'/recipes/show'
+    erb :'recipes/index'
   end
 
 #update
 
   get '/recipes/:id/edit' do
-    @recipe = Recipe.find(params[:id])
-    # @user = User.find(recipe.user_id)
+    binding.pry
+    # @recipes = Recipe.find(params[:id])
     erb :'recipes/edit'
   end
 
-  patch '/recipes' do
-
+  patch '/recipes/:id' do
+    @recipes = Recipe.find(params[:id])
+    @recipes.update(
+        name: params[:name],
+        ingredients: params[:ingredients],
+        directions: params[:directions],
+        spirit_type: params[:spirit_type],
+        user_id: current_user.id
+        )
+    erb :'recipes/show'
   end
 
   #delete

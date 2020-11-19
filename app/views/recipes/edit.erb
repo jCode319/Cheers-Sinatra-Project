@@ -1,1 +1,31 @@
-this is the edit page
+<h2>Edit a Drink Recipe</h2>
+                                                <%# injecting patch method into post %>
+<form action="/recipes/<%= @recipe.id %>" method="POST">
+<input type="hidden" name="_method" value="PATCH">
+<br>
+<label>Cocktail Name: </label>
+<input type="text"  name="name" value="" required>
+<br>
+<br>
+<label>Ingredients: </label>
+<textarea name="ingredients" rows="2" cols="50" placeholder="1oz Vodka, 2oz orange juice, etc"></textarea>
+<br>
+<br>
+<label>Directions: </label>
+<textarea name="directions" rows="2" cols="50" placeholder="Please seperate steps with commas."></textarea>
+<br>
+<br>
+<label for="Spirit Type">Choose A Spirit:</label>
+<select name="spirit_type" id="spirit_type">
+  <option value="Bourbon">Bourbon</option>
+  <option value="Gin">Gin</option>
+  <option value="Rum">Rum</option>
+  <option value="Tequila">Tequila</option>
+  <option value="Vodka">Vodka</option>
+  <option value="Whiskey">Whiskey</option>
+  <option value="Other">Other</option>
+</select>
+<br>
+<br>
+<input type="submit" value="Edit">
+</form>

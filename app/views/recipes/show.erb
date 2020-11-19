@@ -10,7 +10,9 @@
   <label>Spirit:</label>
   <li><%= @recipes.spirit_type.gsub(/\n/, '<br/>') %>.</li>
   <br>
-  <label>Created by: <%= @recipes.id %></label>
+  <label>Created by: </label>
+  <li><%= @recipes.user.username.gsub(/\n/, '<br/>') %>.</li>
+
 </ul>
 
 <%# add to drinkbook %>
