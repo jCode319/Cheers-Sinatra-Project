@@ -28,12 +28,10 @@ class RecipesController < ApplicationController
 
   get '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
-    # binding.pry
         erb :'/recipes/show'
-      # else
-      #   redirect to '/recipes'
-      # end
   end
+
+#update
 
   get '/recipes/:id/edit' do
     @recipe = Recipe.find(params[:id])
@@ -45,11 +43,21 @@ class RecipesController < ApplicationController
 
   end
 
+  #delete
+
+
+
+
+
+end
+
+
+
+
+
   # helpers do
   #   def item_params
   #     params.require(:recipe).permit(:name, :ingredients, :descriptions, :spirit_type)
   #   end
   # end
   # this is to make fields required...maybe
-
-end

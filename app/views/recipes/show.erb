@@ -1,4 +1,4 @@
-<h2><%= @recipes.name %>:</h2>
+<h2>Cocktail Name: <%= @recipes.name %></h2>
 
 <ul>
   <label>Ingredients:</label>
@@ -9,7 +9,8 @@
   <br>
   <label>Spirit:</label>
   <li><%= @recipes.spirit_type.gsub(/\n/, '<br/>') %>.</li>
-  <%# created by: %>
+  <br>
+  <label>Created by: <%= @recipes.id %></label>
 </ul>
 
 <%# add to drinkbook %>

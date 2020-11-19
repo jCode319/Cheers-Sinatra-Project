@@ -1,19 +1,19 @@
 class SessionsController < ApplicationController
 
-  get '/sessions/signup' do #new
-    erb :'sessions/signup'
-  end
-
-  post '/sessions/signup' do
-    @user = User.create(params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect to '/recipes'
-    else
-      "error message"     #come back and do flash message
-      redirect to '/sessions/signup'
-    end
-  end
+  # get '/sessions/signup' do #new
+  #   erb :'sessions/signup'
+  # end
+  #
+  # post '/sessions/signup' do
+  #   @user = User.create(params)
+  #   if @user.save
+  #     session[:user_id] = @user.id
+  #     redirect to '/recipes'
+  #   else
+  #     "error message"     #come back and do flash message
+  #     redirect to '/sessions/signup'
+  #   end
+  # end
 
   get '/sessions/login' do
     if !logged_in?
