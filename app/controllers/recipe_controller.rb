@@ -4,28 +4,31 @@ class RecipesController < ApplicationController
   #   require_login
   # end
 
-  get '/recipes' do #read
+#create
+  get '/recipes/new' do
+    erb :'recipes/new'
+  end
+
+  post '/recipes' do
+    @recipes = Recipe.create(
+      name: params[:name],
+      ingredients: params[:ingredients],
+      directions: params[:directions],
+      spirit_type: params[:spirit_type]
+    )
+      redirect to "/recipes/#{@recipes.id}"
+  end
+
+#read
+  get '/recipes' do
     @recipes = Recipe.all
     @sorted_recipes = @recipes.sort_by {|r| r.name}
     erb :'/recipes/index'
   end
 
-  get '/recipes/new' do
-    erb :'recipes/new'
-  end
-
-  post '/recipes' do #create
-    "You've been made"
-    @recipe = Recipe.create(params)
-    # @recipe.user_id = current_user.id
-     # binding.pry
-
-  end
-
   get '/recipes/:id' do
-    @recipes = Recipe.find_by(id: params[:id])
-      # if @recipe
-        # @user = User.find(@recipe.user_id)
+    @recipes = Recipe.find(params[:id])
+    # binding.pry
         erb :'/recipes/show'
       # else
       #   redirect to '/recipes'
@@ -33,7 +36,13 @@ class RecipesController < ApplicationController
   end
 
   get '/recipes/:id/edit' do
+    @recipe = Recipe.find(params[:id])
+    # @user = User.find(recipe.user_id)
     erb :'recipes/edit'
+  end
+
+  patch '/recipes' do
+
   end
 
   # helpers do
