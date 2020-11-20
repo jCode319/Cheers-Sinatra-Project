@@ -14,14 +14,9 @@
   <li><%= @recipes.user.username.gsub(/\n/, '<br/>') %>.</li>
 
 </ul>
+<br>
 
 <a href=<%= "/recipes/#{@recipes.id}/edit" %>>Edit This Recipe!</a>
-
+<br>
 <%# delete form %>
-<form action=<%= "/recipes/#{@recipes.id}" %> method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete This Recipe">
-</form>
-
 <%# add to drinkbook %>
-<%# edit recipe (if user) %>

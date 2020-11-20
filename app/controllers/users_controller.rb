@@ -7,31 +7,34 @@ class UsersController < ApplicationController
   # end
 
   get '/users/signup' do #new
-    erb :'sessions/signup'
+    if logged_in
+      "You're already logged in!"
+     else
+       erb :'sessions/signup'
+     end
   end
 
   post '/users/signup' do
-      @user = User.create(params)
+      if params[:username] == "" && params[:password] == ""
+        redirect to "/users/signup"
+      else
+      @user = User.new(params)
       session[:user_id] = @user.id #setting session key to a value
       redirect to "/users/#{@user.id}"
-    # if
-    #else
-    #   "error message"     #come back and do flash message
-    #   redirect to '/sessions/signup'
-    # end
+    end
   end
 
   get '/users/login' do
     if !logged_in?
-    erb :'sessions/login'
+    erb :'users/login'
     else
-    redirect to "/users/#{@user.id}"
+      #flash message - welcome back
+      erb :'/users/drinkbook'
     end
   end
 
   post '/users/login' do
-    @user = User.find_by(username: params[:username]) #more specific than .find
-
+    @user = User.find_by(username: params[:username]) #more specific search than .find
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user_id
       redirect to "/users/#{@user.id}"
