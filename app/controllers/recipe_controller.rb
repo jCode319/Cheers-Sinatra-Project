@@ -10,14 +10,14 @@ class RecipesController < ApplicationController
   end
 
   post '/recipes' do
-    @recipe = Recipe.create(
+    @recipes = Recipe.create(
       name: params[:name],
       ingredients: params[:ingredients],
       directions: params[:directions],
       spirit_type: params[:spirit_type],
       user_id: current_user.id
       )
-      redirect "/recipes/#{@recipe.id}"
+      redirect "/recipes/#{@recipes.id}"
   end
 
 #read
@@ -32,13 +32,13 @@ class RecipesController < ApplicationController
     erb :'recipes/index'
   end
 
-#update
 
   get '/recipes/:id/edit' do
-    binding.pry
-    # @recipes = Recipe.find(params[:id])
+    @recipes = Recipe.find(params[:id])
     erb :'recipes/edit'
   end
+
+  #update
 
   patch '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
@@ -47,13 +47,16 @@ class RecipesController < ApplicationController
         ingredients: params[:ingredients],
         directions: params[:directions],
         spirit_type: params[:spirit_type],
-        user_id: current_user.id
         )
-    erb :'recipes/show'
+    redirect "/recipes/#{@recipes.id}"
   end
 
   #delete
-
+  delete '/recipes/:id' do
+    recipes = Recipe.find(params[:id])
+    recipes.destroy
+    redirect to '/recipes'
+  end
 
 
 

@@ -1,22 +1,22 @@
-<h2>Edit a Drink Recipe</h2>
+<h2>Edit This Drink Recipe</h2>
                                                 <%# injecting patch method into post %>
-<form action="/recipes/<%= @recipe.id %>" method="POST">
+<form action="<%="/recipes/#{@recipes.id}" %>" method="POST">
 <input type="hidden" name="_method" value="PATCH">
 <br>
 <label>Cocktail Name: </label>
-<input type="text"  name="name" value="" required>
+<input type="text"  name="name" value="<%= @recipes.name %>" >
 <br>
 <br>
 <label>Ingredients: </label>
-<textarea name="ingredients" rows="2" cols="50" placeholder="1oz Vodka, 2oz orange juice, etc"></textarea>
+<textarea type="text" name="ingredients" rows="2" cols="50"> <%= @recipes.ingredients %> </textarea>
 <br>
 <br>
 <label>Directions: </label>
-<textarea name="directions" rows="2" cols="50" placeholder="Please seperate steps with commas."></textarea>
+<textarea type="text" name="directions" rows="2" cols="50"> <%= @recipes.directions %> </textarea>
 <br>
 <br>
 <label for="Spirit Type">Choose A Spirit:</label>
-<select name="spirit_type" id="spirit_type">
+<select name="spirit_type" id="spirit_type" <%= @recipes.spirit_type %> >
   <option value="Bourbon">Bourbon</option>
   <option value="Gin">Gin</option>
   <option value="Rum">Rum</option>
