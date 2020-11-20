@@ -32,13 +32,12 @@ class RecipesController < ApplicationController
     erb :'recipes/index'
   end
 
+#update
 
   get '/recipes/:id/edit' do
     @recipes = Recipe.find(params[:id])
     erb :'recipes/edit'
   end
-
-  #update
 
   patch '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
@@ -51,16 +50,12 @@ class RecipesController < ApplicationController
     redirect "/recipes/#{@recipes.id}"
   end
 
-  #delete
+#delete
   delete '/recipes/:id' do
     recipes = Recipe.find(params[:id])
     recipes.destroy
     redirect to '/recipes'
-  end
-
-
-
-
+  end 
 end
 
 

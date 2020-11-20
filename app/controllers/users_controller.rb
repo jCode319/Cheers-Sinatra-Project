@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
+#stateless - handles each site individually
+# session = hash, always available, persited into a cookie, sent back to server.
 
   # before do
   #   require_login
   # end
+
   get '/users/signup' do #new
     erb :'sessions/signup'
   end
 
   post '/users/signup' do
       @user = User.create(params)
-      session[:user_id] = @user.id
+      session[:user_id] = @user.id #setting session key to a value
       redirect to "/users/#{@user.id}"
     # if
     #else
@@ -27,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   post '/users/login' do
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username]) #more specific than .find
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user_id
@@ -40,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     erb :'/users/drinkbook'
   end
 

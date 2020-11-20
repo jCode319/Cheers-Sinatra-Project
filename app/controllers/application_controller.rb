@@ -5,9 +5,8 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    # set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions
-    set :session_secret, "secret"
+    set :session_secret, "sedricnkretup" #set-up encryption so it doesn't get hacked easily
   end
 
   get "/" do
