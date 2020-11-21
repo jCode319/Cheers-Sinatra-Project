@@ -10,8 +10,6 @@ class RecipesController < ApplicationController
   end
 
   post '/recipes' do
-    binding.pry
-
     @recipes = Recipe.create(
       name: params[:name],
       ingredients: params[:ingredients],

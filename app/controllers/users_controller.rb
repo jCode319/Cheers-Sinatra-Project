@@ -49,6 +49,10 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
+    @recipes = Recipe.all
+    @my_recipes =[]
+    @my_recipes << @recipes.select { |recipe| recipe.user_id == @user.id }
+
     erb :'/users/drinkbook'
   end
 

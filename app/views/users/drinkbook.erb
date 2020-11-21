@@ -1,19 +1,22 @@
 <h1> Hi <%= @user.username %>, Welcome to your DrinkBook </h1>
 
 
-
-
 <a href="/recipes">View Recipes</a>
 <br>
 <a href="/recipes/new">Add A New Recipe</a>
 <br>
 <a href="/logout">Logout</a>
+<br>
 
 
 
-<p> My Drink Recipes:
-1
-2
-3
-4
-</p>
+<h3>My Recipes:</h3>
+
+<ul>
+<%  @my_recipes[0].each do |recipe| %>
+    <li> <a href="/recipes/<%=recipe.id%>"><%= recipe.name %> </a></li>
+<br>
+
+
+<% end %>
+</ul>
