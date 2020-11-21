@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # end
 
   get '/users/signup' do #new
-    if logged_in
+    if logged_in?
       "You're already logged in!"
      else
        erb :'sessions/signup'
@@ -15,10 +15,11 @@ class UsersController < ApplicationController
   end
 
   post '/users/signup' do
-      if params[:username] == "" && params[:password] == ""
+      @user = User.new(params)
+      if @user.username == nil && @user.password == nil
         redirect to "/users/signup"
       else
-      @user = User.new(params)
+        @user.save
       session[:user_id] = @user.id #setting session key to a value
       redirect to "/users/#{@user.id}"
     end
@@ -26,10 +27,11 @@ class UsersController < ApplicationController
 
   get '/users/login' do
     if !logged_in?
-    erb :'users/login'
+      erb :'/sessions/login'
     else
       #flash message - welcome back
-      erb :'/users/drinkbook'
+      @user = User.find(session[:user_id])
+      redirect to "/users/#{@user.id}"
     end
   end
 

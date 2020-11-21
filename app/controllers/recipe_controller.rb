@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
   end
 
   post '/recipes' do
+    binding.pry
+
     @recipes = Recipe.create(
       name: params[:name],
       ingredients: params[:ingredients],
@@ -41,6 +43,7 @@ class RecipesController < ApplicationController
 
   patch '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
+    # if authorized_to_edit(@recipes)
     @recipes.update(
         name: params[:name],
         ingredients: params[:ingredients],
@@ -55,7 +58,7 @@ class RecipesController < ApplicationController
     recipes = Recipe.find(params[:id])
     recipes.destroy
     redirect to '/recipes'
-  end 
+  end
 end
 
 

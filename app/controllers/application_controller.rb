@@ -13,6 +13,14 @@ class ApplicationController < Sinatra::Base
     erb :homepage
   end
 
+  get '/test' do
+    if session[:id]
+      "You are logged in"
+    else
+      "you are not logged in"
+    end
+  end
+
 helpers do
     def logged_in?
       !!session[:user_id]
@@ -27,6 +35,11 @@ helpers do
         redirect '/login'
       end
     end
+
+    def authorized_to_edit(recipe)
+      recipe.user_id == session[:user_id]
+    end
+
   end
 
 end

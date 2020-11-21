@@ -1,6 +1,5 @@
 <h2>Edit This Drink Recipe</h2>
-  <p>You can edit any field below or leave blank. Make sure to choose the correct spirit before submitting edit below.
-  You can also delete the entire recipe below.</p>
+  <p>You can edit any field below or leave it as is. Make sure to choose the correct spirit before submitting the edit button below.</p>
                                                 <%# injecting patch method into post %>
 <form action="<%="/recipes/#{@recipes.id}" %>" method="POST">
 <input type="hidden" name="_method" value="PATCH">
