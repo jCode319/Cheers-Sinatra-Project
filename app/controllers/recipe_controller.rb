@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
 #read
   get '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
+    @users = User.find_by(id: params[:id])
       erb :'recipes/show'
   end
 

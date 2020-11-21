@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/test' do
-    if session[:id]
+    if !!session[:user_id]
       "You are logged in"
     else
       "you are not logged in"
