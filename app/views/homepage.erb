@@ -1,10 +1,14 @@
-<h1>Cheers, welcome to the DrinkBook</h1>
-<br>
+<h1>Cheers, Welcome to the DrinkBook!</h1>
 
-<!-- add blurb about application -->
-<p>This will be a blurb about this website...</p>
-<br>
+  <p>This is a cocktail recipe application that allows you to create and save your favorite recipes or view other's in the community. This application was built with Ruby, Sinatra and Bootstrap.</p>
 
-<a href="/users/login">Login</a>
-<br>
-<a href="/users/signup">Create an Account</a>
+  <% if session[:user_id] %> 
+  <h3>Hey, you're already logged in!</h3>  
+  <ul>
+  <li><a href="/logout">Click here to logout<a/></li>
+    <% else %>
+  <li><a href="/users/login">Login</a></li><br>
+   <% end %> 
+  <li><a href="/users/login">View Your Recipes</a></li><br>
+  <li><a href="/users/signup">Create an Account</a></li><br>
+  </ul>

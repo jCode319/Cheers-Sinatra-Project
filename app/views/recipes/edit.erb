@@ -2,37 +2,39 @@
   <p>You can edit any field below or leave it as is. Make sure to choose the correct spirit before submitting the edit button below.</p>
                                                 <%# injecting patch method into post %>
 <form action="<%="/recipes/#{@recipes.id}" %>" method="POST">
-<input type="hidden" name="_method" value="PATCH">
-<br>
-<label>Cocktail Name: </label>
-<input type="text"  name="name" value="<%= @recipes.name %>" >
-<br>
-<br>
-<label>Ingredients: </label>
-<textarea type="text" name="ingredients" rows="2" cols="50"> <%= @recipes.ingredients %> </textarea>
-<br>
-<br>
-<label>Directions: </label>
-<textarea type="text" name="directions" rows="2" cols="50"> <%= @recipes.directions %> </textarea>
-<br>
-<br>
-<label for="Spirit Type">Choose A Spirit:</label>
-<select name="spirit_type" id="spirit_type" <%= @recipes.spirit_type %> >
-  <option value="Bourbon">Bourbon</option>
-  <option value="Gin">Gin</option>
-  <option value="Rum">Rum</option>
-  <option value="Tequila">Tequila</option>
-  <option value="Vodka">Vodka</option>
-  <option value="Whiskey">Whiskey</option>
-  <option value="Other">Other</option>
-</select>
-<br>
-<br>
-<input type="submit" value="Edit This Recipe">
+  <input type="hidden" name="_method" value="PATCH">
+    <br>
+  <label>Cocktail Name: </label>
+  <input type="text"  name="name" value="<%= @recipes.name %>" >
+    <br>
+    <br>
+  <label>Ingredients: </label>
+  <textarea type="text" name="ingredients" rows="2" cols="50"><%= @recipes.ingredients.strip.capitalize %></textarea>
+    <br>
+    <br>
+  <label>Directions: </label>
+  <textarea type="text" name="directions" rows="2" cols="50"><%= @recipes.directions.strip.capitalize %></textarea>
+    <br>
+    <br>
+  <label for="Spirit Type">Choose A Spirit:</label>
+  <select name="spirit_type" id="spirit_type" <%= @recipes.spirit_type %> >
+    <option value="Bourbon">Bourbon</option>
+    <option value="Gin">Gin</option>
+    <option value="Rum">Rum</option>
+    <option value="Tequila">Tequila</option>
+    <option value="Vodka">Vodka</option>
+    <option value="Whiskey">Whiskey</option>
+    <option value="Other">Other</option>
+  </select>
+    <br>
+    <br>
+  <input type="submit" value="Update This Recipe">
 </form>
-<br>
-<br>
+  <br>
 <form action=<%= "/recipes/#{@recipes.id}" %> method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete This Recipe">
+  <br>
+  <br>
+  <a href="#" onclick="history.go(-1)"</a>
 </form>

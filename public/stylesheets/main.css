@@ -15,7 +15,7 @@
   body {
     background-color: DAA520;
     color: #DAA520;
-    font-family: Sans-Serif;
+    font-family: Monospace;
     line-height: 18px;
   }
 
@@ -31,24 +31,26 @@
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 48px;
     line-height: 54px;
   }
 
   h2 {
     border-bottom: 2px solid #ccc;
-    font-size: 24px;
+    font-size: 36px;
     line-height: 36px;
     margin-bottom: 16px;
   }
 
   h3 {
     font-size: 18px;
+    font-color:
     line-height: 36px;
+
   }
 
   p {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
 
   .main {

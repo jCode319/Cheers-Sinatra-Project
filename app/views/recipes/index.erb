@@ -1,12 +1,16 @@
-<h3>All Recipes:</h3>
+<h2>All Recipes:</h2>
 
 <ul>
 <%  @recipes.each do |recipe| %>
-    <li> <a href="/recipes/<%=recipe.id%>"><%= recipe.name %> </a></li>
+    <li><a href="/recipes/<%=recipe.id%>"><%= recipe.name %> </a></li>
 <br>
-
 
 <% end %>
 </ul>
+
+<h3><a href=<%= "/recipes/new" %>>Create A New Recipe</a></h3>
+<h3><a href=<%= "/" %>>Home Page</a></h3>
+
+
 
 <!-- show options: view drinkbook, create a recipe, logout -->

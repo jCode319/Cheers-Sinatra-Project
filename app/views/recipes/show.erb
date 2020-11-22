@@ -2,17 +2,16 @@
 
 <ul>
   <label>Ingredients:</label>
-  <li><%= @recipes.ingredients.gsub(/\n/, '<br/>') %>.</li>
+  <li><%= @recipes.ingredients.gsub(" ","_") %>.</li>
   <br>
   <label>Directions:</label>
-  <li><%= @recipes.directions.gsub(/\n/, '<br/>') %>.</li>
+  <li><%= @recipes.directions.gsub(" ","_") %>.</li>
   <br>
   <label>Spirit:</label>
-  <li><%= @recipes.spirit_type.gsub(/\n/, '<br/>') %>.</li>
+  <li><%= @recipes.spirit_type.gsub(" ","_") %>.</li>
   <br>
   <label>Created by: </label>
-  <li><%= @recipes.user.username.gsub(/\n/, '<br/>') %>.</li>
-
+  <li><%= @recipes.user.username.gsub(" ","_") %></li>
 </ul>
 <br>
 
@@ -20,7 +19,7 @@
 <br>
 <a href="">Add To My Drinkbook</a>
 <br>
-<a href=<%= "/users/#{@users.id}" %>>View My DrinkBook</a>
+<a href=<%= "/recipes" %>>View All Recipes</a>
 <br>
 
 <%# delete form %>
