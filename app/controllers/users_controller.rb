@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username]) #more specific search than .find
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user_id
-      binding.pry
       redirect to "/users/#{@user.id}"
     else
       #come back to make a flash message.

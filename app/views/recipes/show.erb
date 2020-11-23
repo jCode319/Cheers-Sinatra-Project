@@ -2,23 +2,23 @@
 
 <ul>
   <label>Ingredients:</label>
-  <li><%= @recipes.ingredients.gsub(" ","_") %>.</li>
+  <li><%= @recipes.ingredients.gsub(" ","_") %></li>
   <br>
   <label>Directions:</label>
-  <li><%= @recipes.directions.gsub(" ","_") %>.</li>
+  <li><%= @recipes.directions.gsub(" ","_") %></li>
   <br>
   <label>Spirit:</label>
-  <li><%= @recipes.spirit_type.gsub(" ","_") %>.</li>
+  <li><%= @recipes.spirit_type.gsub(" ","_") %></li>
   <br>
   <label>Created by: </label>
   <li><%= @recipes.user.username.gsub(" ","_") %></li>
 </ul>
 <br>
 
-<a href=<%= "/recipes/#{@recipes.id}/edit" %>>Edit This Recipe!</a>
+<a href=<%= "/recipes/#{@recipes.id}/edit" %>>Edit This Recipe</a>
 <br>
-<a href="">Add To My Drinkbook</a>
-<br>
+<!-- <a href="">Add To My Drinkbook</a>
+<br> -->
 <a href=<%= "/recipes" %>>View All Recipes</a>
 <br>
 

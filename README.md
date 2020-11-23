@@ -1,7 +1,10 @@
-To Do:
+Cheers!
 
-To get this running, clone this repo.
+Welcome to the place where you can make and view your favorite cocktail recipes.
 
-Run bundle install then rake db:migrate then shotgun
-
-Then navigate to localhost:9393 to see it!
+To get this running:
+* Clone this repo.
+* Run bundle install
+* Rake db:migrate
+* Run shotgun
+* navigate to localhost:9393 to view the site!

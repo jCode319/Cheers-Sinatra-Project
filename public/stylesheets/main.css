@@ -7,6 +7,7 @@
   }
 
   html, body {
+    color: #fff
     height: 100%;
     width: 100%;
   }
@@ -17,6 +18,12 @@
     color: #DAA520;
     font-family: Monospace;
     line-height: 18px;
+  }
+
+  body {background-color: gray;}
+
+  label {
+    color: black
   }
 
   .wrapper {
@@ -51,6 +58,10 @@
 
   p {
     margin-bottom: 20px;
+  }
+
+  a {
+    font color: black
   }
 
   .main {
