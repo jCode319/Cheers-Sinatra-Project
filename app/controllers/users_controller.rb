@@ -2,10 +2,6 @@ class UsersController < ApplicationController
 #stateless - handles each site individually
 # session = hash, always available, persited into a cookie, sent back to server.
 
-  # before do
-  #   require_login
-  # end
-
   get '/users/signup' do #new
     if logged_in?
       "You're already logged in!"

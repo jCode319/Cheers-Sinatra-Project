@@ -20,7 +20,9 @@
     line-height: 18px;
   }
 
-  body {background-color: gray;}
+  body {
+    background-color: gray;
+  }
 
   label {
     color: black
@@ -51,9 +53,7 @@
 
   h3 {
     font-size: 18px;
-    font-color:
     line-height: 36px;
-
   }
 
   p {

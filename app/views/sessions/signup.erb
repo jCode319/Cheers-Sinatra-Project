@@ -2,13 +2,13 @@
 
 <form action="/users/signup" method="POST">
 <label>Username:</label>
-<input type="text" name="username" placeholder="Username" required>
+<input type="text" name="username" placeholder="Username" required pattern="[0-9a-zA-Z_-]*">
 <br>
 <label>Email:</label>
 <input type="text" name="email" placeholder="Email" required>
 <br>
 <label>Password:</label>
-<input type="password" name="password" placeholder="Password" required>
+<input type="password" name="password" placeholder="Password" required pattern=".{6,}" title="Six or more characters">
 <br>
 <br>
 <input type="submit" value="Sign-Up">

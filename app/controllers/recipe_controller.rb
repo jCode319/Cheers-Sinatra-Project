@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
 
   patch '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
-    # if authorized_to_edit(@recipes)
+    if authorized_to_edit(@recipes)
     @recipes.update(
         name: params[:name],
         ingredients: params[:ingredients],
@@ -45,6 +45,9 @@ class RecipesController < ApplicationController
         spirit_type: params[:spirit_type],
         )
     redirect "/recipes/#{@recipes.id}"
+  else
+    "You are not allowed to make an edit"
+    end
   end
 
 #delete
