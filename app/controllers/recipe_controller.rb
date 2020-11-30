@@ -31,8 +31,12 @@ class RecipesController < ApplicationController
 #update
   get '/recipes/:id/edit' do
     @recipes = Recipe.find(params[:id])
+    if @recipes && authorized_to_edit(@recipes)
     erb :'recipes/edit'
+    else
+      "You are not allowed to make an edit"
   end
+end
 
   patch '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
