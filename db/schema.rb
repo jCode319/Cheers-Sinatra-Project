@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20201117170130) do
     t.integer "user_id"
   end
 
-  create_table "saved_recipes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "recipe_id"
-  end
+  # create_table "saved_recipes", force: :cascade do |t|
+  #   t.integer "user_id"
+  #   t.integer "recipe_id"
+  # end
 
   create_table "users", force: :cascade do |t|
     t.string "username"

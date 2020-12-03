@@ -1,11 +1,10 @@
 class RecipesController < ApplicationController
 
-#create
   get '/recipes/new' do
     erb :'recipes/new'
   end
 
-  post '/recipes' do
+  post '/recipes' do #create
     @recipes = Recipe.create(
       name: params[:name],
       ingredients: params[:ingredients],
@@ -19,6 +18,7 @@ class RecipesController < ApplicationController
 #read
   get '/recipes/:id' do
     @recipes = Recipe.find(params[:id])
+    #binding.pry
       erb :'recipes/show'
   end
 
@@ -28,7 +28,6 @@ class RecipesController < ApplicationController
     erb :'recipes/index'
   end
 
-#update
   get '/recipes/:id/edit' do
     @recipes = Recipe.find(params[:id])
     if @recipes && authorized_to_edit(@recipes)
@@ -38,7 +37,7 @@ class RecipesController < ApplicationController
   end
 end
 
-  patch '/recipes/:id' do
+  patch '/recipes/:id' do #update
     @recipes = Recipe.find(params[:id])
     if authorized_to_edit(@recipes)
     @recipes.update(

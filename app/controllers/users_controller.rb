@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   post '/users/login' do
     @user = User.find_by(username: params[:username]) #more specific search than .find
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user_id
+      session[:user_id] = @user.id #L
       redirect to "/users/#{@user.id}"
     else
       #come back to make a flash message.
@@ -46,9 +46,6 @@ class UsersController < ApplicationController
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
     @recipes = Recipe.all.select { |recipe| recipe.user_id == @user.id }
-    # @my_recipes =[]
-    # @my_recipes << @recipes.select { |recipe| recipe.user_id == @user.id }
-
     erb :'/users/drinkbook'
   end
 

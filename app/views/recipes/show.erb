@@ -14,8 +14,9 @@
   <li><%= @recipes.user.username.gsub(" ","_") %></li>
 </ul>
 <br>
-
-<a href=<%= "/recipes/#{@recipes.id}/edit" %>>Edit This Recipe</a>
+<% if @recipes.user.id == session[:user_id] %>
+  <a href=<%= "/recipes/#{@recipes.id}/edit" %>>Edit This Recipe</a>
+<% end %>
 <br>
 <!-- <a href="">Add To My Drinkbook</a>
 <br> -->
